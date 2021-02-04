@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  content: MyText
+  politician: one
+  user: one
+
+two:
+  content: MyText
+  politician: two
+  user: two

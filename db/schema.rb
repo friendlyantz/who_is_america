@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_04_231809) do
+ActiveRecord::Schema.define(version: 2021_02_04_234533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(version: 2021_02_04_231809) do
     t.index ["location_id"], name: "index_politicians_on_location_id"
   end
 
+  create_table "quotes", force: :cascade do |t|
+    t.text "content"
+    t.text "source_link"
+    t.integer "approval_status"
+    t.bigint "politician_id", null: false
+    t.bigint "creator_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["creator_id"], name: "index_quotes_on_creator_id"
+    t.index ["politician_id"], name: "index_quotes_on_politician_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -48,4 +60,6 @@ ActiveRecord::Schema.define(version: 2021_02_04_231809) do
 
   add_foreign_key "locations", "locations", column: "parent_location_id"
   add_foreign_key "politicians", "locations"
+  add_foreign_key "quotes", "politicians"
+  add_foreign_key "quotes", "users", column: "creator_id"
 end
