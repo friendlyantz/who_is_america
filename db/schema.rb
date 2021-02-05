@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_04_234533) do
+ActiveRecord::Schema.define(version: 2021_02_05_203621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,9 @@ ActiveRecord::Schema.define(version: 2021_02_04_234533) do
     t.bigint "creator_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "parent_quote_id"
     t.index ["creator_id"], name: "index_quotes_on_creator_id"
+    t.index ["parent_quote_id"], name: "index_quotes_on_parent_quote_id"
     t.index ["politician_id"], name: "index_quotes_on_politician_id"
   end
 
@@ -61,5 +63,6 @@ ActiveRecord::Schema.define(version: 2021_02_04_234533) do
   add_foreign_key "locations", "locations", column: "parent_location_id"
   add_foreign_key "politicians", "locations"
   add_foreign_key "quotes", "politicians"
+  add_foreign_key "quotes", "quotes", column: "parent_quote_id"
   add_foreign_key "quotes", "users", column: "creator_id"
 end
