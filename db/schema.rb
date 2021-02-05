@@ -35,9 +35,9 @@ ActiveRecord::Schema.define(version: 2021_02_04_234533) do
   end
 
   create_table "quotes", force: :cascade do |t|
-    t.text "content"
-    t.text "source_link"
-    t.integer "approval_status"
+    t.text "content", null: false
+    t.text "source_link", null: false
+    t.integer "approval_status", default: 0, null: false
     t.bigint "politician_id", null: false
     t.bigint "creator_id", null: false
     t.datetime "created_at", precision: 6, null: false
