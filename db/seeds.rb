@@ -1,7 +1,6 @@
 puts "destroying all entries"
 Quote.where.not(parent_quote: nil).destroy_all
   puts "child quotes: PURGED"
-  puts "...last quoteremaining: #{Quote.last.content}"
 
   Quote.destroy_all
   puts "all quotes purged"
