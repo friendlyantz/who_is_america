@@ -7,23 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 puts "destroying all entries"
-# Quote.where(parent_quote: !nil).destroy_all
+Quote.where.not(parent_quote: nil).destroy_all
+  puts "child quotes: PURGED"
+  puts "...last quoteremaining: #{Quote.last.content}"
 
-if Quote.where.not(child_quotes: nil ).present? 
-
-destroy_all
-puts "child quotes purged"
-puts "#{Quote.last.content}"
-Quote.destroy_all
-puts "all quotes purged"
+  Quote.destroy_all
+  puts "all quotes purged"
 
 Politician.destroy_all
+
 User.destroy_all
+  
 Location.where(location_type: 1).destroy_all
-puts "states destroyed. yeeew!"
-puts "states destroyed. yeeew!"
+  puts "states destroyed. yeeew!"
+
 Location.destroy_all
-puts "destroying all entries: COMPLETE"
+  puts "destroying all entries: COMPLETE"
 puts"---------------"
 
 usa = Location.create(name: "USA", location_type: 0)
@@ -40,7 +39,7 @@ puts "creating states..."
     "COLORADO	CO",
     "CONNECTICUT	CT",
     "DELAWARE	DE",
-    "DISTRICT OF COLUMBI,A	DC",
+    "DISTRICT OF COLUMBIA	DC",
     "FLORIDA	FL",
     "GEORGIA	GA",
     "GUAM	GU",
@@ -111,11 +110,13 @@ politicians_array = [
 ]
 puts"---------------"
 
-quote_trump = Quote.create(content: "YOLO", source_link: "www.whitehouse.gov", politician: trump, creator: test_user)
+quote_trump = Quote.create(content: "YOLO-approved", source_link: "www.whitehouse.gov", politician: trump, creator: test_user)
   puts "quote created: #{ quote_trump.content }"
-quote_trump2 = Quote.create(content: "WSB4tw", source_link: "www.reddit.com", politician: trump, creator: test_user, parent_quote: quote_trump)
+
+quote_trump2 = Quote.create(content: "YOLO2", source_link: "www.reddit.com", politician: trump, creator: test_user, parent_quote: quote_trump)
   puts "quote created: #{ quote_trump2.content }"
-quote_trump3 = Quote.create(content: "3333", source_link: "www.reddit.com", politician: trump, creator: test_user, parent_quote: quote_trump2)
+
+quote_trump3 = Quote.create(content: "YOLO3", source_link: "www.reddit.com", politician: trump, creator: test_user, parent_quote: quote_trump)
   puts "quote created: #{ quote_trump3.content }"
 
 puts"---------------"
