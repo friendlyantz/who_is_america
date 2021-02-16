@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_05_203621) do
+ActiveRecord::Schema.define(version: 2021_02_11_211409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,9 +43,18 @@ ActiveRecord::Schema.define(version: 2021_02_05_203621) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "parent_quote_id"
+    t.bigint "source_tracker_id"
     t.index ["creator_id"], name: "index_quotes_on_creator_id"
     t.index ["parent_quote_id"], name: "index_quotes_on_parent_quote_id"
     t.index ["politician_id"], name: "index_quotes_on_politician_id"
+    t.index ["source_tracker_id"], name: "index_quotes_on_source_tracker_id"
+  end
+
+  create_table "source_trackers", force: :cascade do |t|
+    t.string "name"
+    t.integer "reliability_by_admin", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -64,5 +73,6 @@ ActiveRecord::Schema.define(version: 2021_02_05_203621) do
   add_foreign_key "politicians", "locations"
   add_foreign_key "quotes", "politicians"
   add_foreign_key "quotes", "quotes", column: "parent_quote_id"
+  add_foreign_key "quotes", "source_trackers"
   add_foreign_key "quotes", "users", column: "creator_id"
 end
