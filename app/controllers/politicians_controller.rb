@@ -1,6 +1,7 @@
   class PoliticiansController < ApplicationController
   def index
     @politicians = Politician.all
+    @locations = Location.all
   end
 
   def show
