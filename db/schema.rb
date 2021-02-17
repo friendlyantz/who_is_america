@@ -70,6 +70,7 @@ ActiveRecord::Schema.define(version: 2021_02_11_221720) do
   end
 
   create_table "votes", force: :cascade do |t|
+    t.integer "content", null: false
     t.bigint "user_id", null: false
     t.bigint "quote_id", null: false
     t.datetime "created_at", precision: 6, null: false
