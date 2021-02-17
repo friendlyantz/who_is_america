@@ -1,4 +1,8 @@
 puts "destroying all entries"
+Vote.destroy_all
+
+puts "#{Quote.where.not(parent_quote: nil)}"
+
 Quote.where.not(parent_quote: nil).destroy_all
   puts "child quotes: PURGED"
 
@@ -111,3 +115,12 @@ quote_trump3 = Quote.create(content: "YOLO3", source_link: "www.reddit.com", pol
   puts "quote created: #{ quote_trump3.content }"
 
 puts"---------------"
+puts '------VOTING---------'
+
+vote = Vote.new(content: 1)
+vote.user = User.first
+vote.quote = Quote.first
+vote.save
+
+puts "#{vote} created!"
+puts '---------------'
