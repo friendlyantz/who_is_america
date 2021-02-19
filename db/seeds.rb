@@ -1,4 +1,9 @@
-puts "destroying all entries"
+puts "==destroying all entries"
+
+puts "destroying UserTrackers"
+UserTracker.destroy_all
+
+puts "destroying VOTES"
 Vote.destroy_all
 
 puts "#{Quote.where.not(parent_quote: nil)}"
@@ -123,4 +128,12 @@ vote.quote = Quote.first
 vote.save
 
 puts "#{vote} created!"
+puts '---------------'
+
+puts '------USER_TRACKER---------'
+trkr = UserTracker.new(match_ratio: 0.2)
+trkr.user = User.first
+trkr.politician = Politician.first
+trkr.save
+puts "#{trkr} created!. ratio: #{trkr.match_ratio}"
 puts '---------------'
