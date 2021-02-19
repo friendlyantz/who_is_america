@@ -3,7 +3,6 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   it 'has an email' do
     user = User.new(password: "password", password_confirmation: "password")
-    puts "===> #{user} stored in variable!"
     expect(user).to_not be_valid
 
     user.email = "rspec@test.com"  

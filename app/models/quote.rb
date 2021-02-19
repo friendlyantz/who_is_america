@@ -8,5 +8,7 @@ class Quote < ApplicationRecord
 
   has_many :votes
   
+  validates_length_of :content, within: 10..100, on: :create, message: "must be present"
+
   enum approval_status: [:pending, :declined, :accepted, :archived]
 end
