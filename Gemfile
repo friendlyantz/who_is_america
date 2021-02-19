@@ -5,6 +5,9 @@ ruby '2.6.6'
 
 gem 'devise'
 
+group :development, :test do
+  gem 'rspec-rails', '~> 4.0.2'
+end
 
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
