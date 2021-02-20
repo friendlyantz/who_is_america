@@ -7,4 +7,9 @@
   def show
     @politician = Politician.find(params[:id]) 
   end
+
+  private
+
+  def
+
 end

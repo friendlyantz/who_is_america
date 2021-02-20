@@ -1,5 +1,7 @@
-<h1> vote now! 🚀</h1>
-
-<button type="button">CREATE ACCOUNT</button>
-<button type="button">LOG IN</button>
-<button type="button">CONTINUE AS GUEST</button>
+<h1> Home. vote now! 🚀</h1>
+<% if user_signed_in? %>
+ <p> welcome back</p>
+ 
+ <% else %>
+ <p>hello, guest</p>
+ <% end %>
