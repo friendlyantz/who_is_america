@@ -9,5 +9,10 @@ Rails.application.routes.draw do
   get 'home', to: 'pages#home'
 
   resources :politicians, only: [:index, :show ]
+  resources :quotes, only: [:index ]
+
+  get 'contribute', to: 'pages#contribute'
+
+  get 'my_account', to: 'pages#my_account'
 
 end
