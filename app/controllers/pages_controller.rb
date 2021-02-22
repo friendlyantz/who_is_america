@@ -12,4 +12,12 @@ class PagesController < ApplicationController
     @locations = Location.all
   end
 
+  def my_account
+    @user = current_user
+  end
+  
+  def contribute
+    @user = current_user
+  end
+  
 end
