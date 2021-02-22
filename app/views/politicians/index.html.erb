@@ -5,7 +5,7 @@
 
 <ul>
   <% @politicians.each_with_index do |politician, index| %>
-    <li> <%= index %>. <%= politician.first_name %> - <%= politician.last_name %></li>
+    <li> <%= index + 1 %>. <%= politician.first_name %> - <%= politician.last_name %> <%= link_to "link", politician_path(politician) %></li>
   <% end %>
 </ul>
 
