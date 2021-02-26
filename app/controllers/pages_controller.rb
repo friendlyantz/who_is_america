@@ -20,4 +20,10 @@ class PagesController < ApplicationController
     @user = current_user
   end
   
+  def quiz
+    @user = current_user
+    not_voted_quotes = Quote.all - current_user.votes.map(&:quote)
+    @random_not_voted_quote = not_voted_quotes.sample
+  end
+  
 end

@@ -15,4 +15,6 @@ Rails.application.routes.draw do
 
   get 'my_account', to: 'pages#my_account'
 
+  get 'quiz', to: 'pages#quiz'
+
 end
