@@ -23,10 +23,26 @@ class QuotesController < ApplicationController
       render 'new'
     end
   end
+  
+  def edit
+    @quote = Quote.find(params[:id])
+  end
+  
+  def update
+    @quote = Quote.find(params[:id])
+    if @quote.update(quote_params)
+      flash[:success] = 'Object successfully updated'
+      redirect_to contribute_path
+    else
+      flash[:error] = 'Something went wrong'
+      render 'edit'
+    end
+  end
+ 
 
   private
 
   def quote_params
-    params.require(:quote).permit(:content, :source_link, :politician_id)
+    params.require(:quote).permit(:content, :source_link, :politician_id, :source_tracker_id)
   end
 end

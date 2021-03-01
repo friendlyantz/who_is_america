@@ -2,7 +2,7 @@
 <h4> Quotes you created: </h4>
 <ol>
   <% @user.quotes.each do |quote| %>
-    <li> <%= quote.politician.first_name %> <%= quote.politician.last_name %>: "<%= quote.content %>" <%= link_to "Source" , "https://" + quote.source_link %> <%= quote.source_tracker ? "hasTracker" : "hasNoTracker" %> </li>
+    <li> <%= quote.politician.first_name %> <%= quote.politician.last_name %>: "<%= quote.content %>" <%= link_to "Source" , "https://" + quote.source_link %> <%= quote.source_tracker ? "🎆from: #{quote.source_tracker.name}" : "hasNoTracker⚠️" %> <%= link_to "Edit", edit_quote_path(quote) %></li>
   <% end %>
 </ol>
 
