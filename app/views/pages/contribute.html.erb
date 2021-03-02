@@ -1,7 +1,9 @@
 <h1> Contribute </h1>
-<ul>
-<% @user.quotes.each do |quote| %>
-  <li> Quote: <%= quote.content %> </li>
+<h4> Quotes you created: </h4>
+<ol>
+  <% @user.quotes.each do |quote| %>
+    <li> <%= quote.politician.first_name %> <%= quote.politician.last_name %>: "<%= quote.content %>" <%= link_to "Source" , "https://" + quote.source_link %> <%= quote.source_tracker ? "🎆from: #{quote.source_tracker.name}" : "hasNoTracker⚠️" %> <%= link_to "Edit", edit_quote_path(quote) %></li>
+  <% end %>
+</ol>
 
-<% end %>
-</ul>
+<%= link_to "Create quote", new_quote_path %>

@@ -1,0 +1,7 @@
+<%= simple_form_for [ @quote ] do |f| %> 
+  <%= f.input :content %> 
+  <%= f.input :source_link %> 
+  <%# <%= f.select :politician, Politician.all.collect {|p| "#{p.first_name} J. #{p.last_name}" }, prompt: 'Select Politician' %>  %>
+  <%= f.association :politician, label_method: :first_name, value_method: :id, include_blank: false %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %> 
+<% end %>
