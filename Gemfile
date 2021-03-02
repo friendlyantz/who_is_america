@@ -5,6 +5,8 @@ ruby '2.6.6'
 
 gem 'devise'
 
+gem 'awesome_print'
+
 group :development, :test do
   gem 'rspec-rails', '~> 4.0.2'
 end
