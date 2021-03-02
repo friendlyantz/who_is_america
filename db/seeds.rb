@@ -16,6 +16,9 @@
     puts "all quotes purged"
 
   Politician.destroy_all
+  
+  SourceTracker.destroy_all
+    puts "SourceTrackers purged" if SourceTracker.all.empty?
 
   User.destroy_all
     
@@ -25,13 +28,11 @@
   Location.destroy_all
     puts "locations purged"
     
-  SourceTracker.destroy_all
-    puts "SourceTrackers purged" if SourceTracker.all.empty?
 
 
   puts "destroying all entries: COMPLETE"
   puts '---------------------------'
-# ============= PURGE ENDEN. SEEDING STARTING==================
+# ============= PURGE ENDED. SEEDING STARTING==================
   usa = Location.create(name: "USA", location_type: 0)
       puts "#{usa.name} created!"
 
@@ -117,7 +118,7 @@
   
   source_trackers_hash = {
     'Google': 1,
-    'Wikipedia': 0,
+    'Wikipedi2,a': 0,
     'Daily Mail': 2,
     "Sun": 2,
     "New York Times": 1,
