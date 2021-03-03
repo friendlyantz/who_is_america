@@ -2,6 +2,9 @@
 
 <%= @random_not_voted_quote.blank? ? "You have voted for all the quotes" : @random_not_voted_quote.content %>
 
-<button type="submit"> Agree </button>
-<button type="submit"> Disagree </button>
+<%= link_to "Agree", votes_path(@random_not_voted_quote), method: :post%> 
+<%# <%= link_to "Disagree", new_vote_path(content: 0), method: post %>  %>
+
+<%# <button type="submit"> Agree </button>
+<button type="submit"> Disagree </button> %>
 
