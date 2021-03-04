@@ -5,8 +5,9 @@ class VotesController < ApplicationController
   end
   
   def create
-    @vote = Vote.new(vote_params)
+    @vote = Vote.new(params[:id])
     @vote.user = current_user
+    @vote.content = params[:content]
     @quote = Quote.find(params[:quote_id])
     @vote.quote = @quote
 
@@ -22,8 +23,8 @@ class VotesController < ApplicationController
 
   private
 
-  def vote_params
-    params.require(:vote).permit(:content, :quote_id)
-  end
+  # def vote_params
+  #   params.require(:vote).permit(:content, :quote_id)
+  # end
   
 end

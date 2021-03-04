@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get 'contribute', to: 'pages#contribute'
 
+  post 'cast_vote', to: 'pages#cast_vote'
+
   get 'my_account', to: 'pages#my_account'
 
   get 'quiz', to: 'pages#quiz'

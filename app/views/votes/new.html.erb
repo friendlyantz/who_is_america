@@ -1,13 +1,8 @@
 <h1> !!!Quiz, hello <%= current_user.email %></h1>
 
-<%# <%= @random_not_voted_quote.blank? ? "You have voted for all the quotes" : @random_not_voted_quote.content %> %>
+<%= link_to "Agree", quote_votes_path(@quote, @vote, content: 1), method: :post  %>
 
-<%= simple_form_for [ @quote, @vote ] do |f| %> 
-  <%= f.input :content %> 
-  <%= f.submit "Submit vote", class: "btn btn-primary" %> 
-<% end %>
-
-<%# <%= link_to "Agree", quote_votes_path(@quote, @vote, content: 1), method: :post  %> %>
+<%= link_to "Disagree", quote_votes_path(@quote, @vote, content: 0), method: :post  %>
 
 <%# <%= link_to "Disagree", new_vote_path(content: 0), method: post %>  %>
 

@@ -1,10 +1,15 @@
-<h1> Quiz, hello <%= @user.email %></h1>
+<h1> Quiz, hello <%= @user.email %></h1> 
+=============
+<%= @quote_just_voted_on.id if !@quote_just_voted_on.nil? %> 
+<% if @random_not_voted_quote.blank? %>
+  <p>
+    <%= puts "You have voted for all the quotes" %>
+ %>
+  </p>
+  <% else %>
+    <% puts "yo" %>
+      <%= @random_not_voted_quote.content %>
+        <%= link_to "Agree" , cast_vote_path(@vote, content: 1, quote_id: @random_not_voted_quote.id), method: :post %>
+        <%= link_to "Disagree" , cast_vote_path(@vote, content: 0, quote_id: @random_not_voted_quote.id), method: :post %>
 
-<%= @random_not_voted_quote.blank? ? "You have voted for all the quotes" : @random_not_voted_quote.content %>
-
-<%= link_to "Agree", votes_path(@random_not_voted_quote), method: :post%> 
-<%# <%= link_to "Disagree", new_vote_path(content: 0), method: post %>  %>
-
-<%# <button type="submit"> Agree </button>
-<button type="submit"> Disagree </button> %>
-
+  <% end %>
