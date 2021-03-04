@@ -1,15 +1,25 @@
 <h1> Quiz, hello <%= @user.email %></h1> 
-=============
-<%= @quote_just_voted_on.id if !@quote_just_voted_on.nil? %> 
-<% if @random_not_voted_quote.blank? %>
-  <p>
-    <%= puts "You have voted for all the quotes" %>
- %>
-  </p>
-  <% else %>
-    <% puts "yo" %>
-      <%= @random_not_voted_quote.content %>
+
+<div id="voting_block">
+    <% if @random_not_voted_quote.blank? %>%
+        <h3>"You have voted for all the quotes"</h3>
+    <% else %>
+        <%= @random_not_voted_quote.content %>
         <%= link_to "Agree" , cast_vote_path(@vote, content: 1, quote_id: @random_not_voted_quote.id), method: :post %>
         <%= link_to "Disagree" , cast_vote_path(@vote, content: 0, quote_id: @random_not_voted_quote.id), method: :post %>
+    <% end %>
+</div>
 
-  <% end %>
+<% if !@quote_just_voted_on.nil? %>
+    <div id="vote_casted">
+       <%= @quote_just_voted_on.politician.last_name %> <%= @quote_just_voted_on.politician.first_name %> <%= @quote_just_voted_on.politician.party %> 
+       <button id="next_quote" type="button">Next Quote</button>
+    </div>
+    <script>
+        document.getElementById("voting_block").hidden = true;
+        document.getElementById("next_quote").onclick = () => {  
+            document.getElementById("voting_block").hidden = false;
+            document.getElementById("vote_casted").hidden = true;
+        };
+    </script>
+<% end %>

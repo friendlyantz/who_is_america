@@ -23,7 +23,10 @@ class PagesController < ApplicationController
     @user = current_user
     not_voted_quotes = Quote.all - current_user.votes.map(&:quote)
     @random_not_voted_quote = not_voted_quotes.sample
-    @quote_just_voted_on = @@quote_just_voted_on
+    if !@@quote_just_voted_on.nil?
+      @quote_just_voted_on = @@quote_just_voted_on
+      @@quote_just_voted_on = nil
+    end
 
     # redirect_to new_quote_vote_path(@random_not_voted_quote) unless @random_not_voted_quote.nil?
   end
