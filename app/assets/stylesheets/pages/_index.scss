@@ -1,2 +1,29 @@
 // Import page-specific CSS files here.
 @import "home";
+@import "welcome";
+
+a.button {
+    background-color: white;
+    border: 1px solid black;
+    padding: 1em 3em;
+    display: flex;
+    margin-top: 1em;
+    justify-content: center;
+    border-radius: 1em;
+    width: 80%;
+    margin: 1em auto 1em auto;
+    color: black;
+}
+
+.button.primary-button {
+    background-color: black;
+    color: white;
+    border-radius: 2em;
+    margin-top: 8em;
+}
+
+body {
+    background-image: url("flag1.png");
+    background-size: 70vh;
+    background-blend-mode: soft-light;
+}
