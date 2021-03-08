@@ -107,8 +107,8 @@
   test_user = User.create(email: "test@test.com", password: "password")
   puts "test user created: login #{ test_user.email }, password: #{ test_user.password } "
   # ========== ADMINS ===============
-  admin_user = User.create(email: "admin@admin.com", password: "password")
-  puts "admin user created: login #{ admin_user.email }, password: #{ admin_user.password } "
+  admin_user = User.create(email: "admin@admin.com", password: "password", permissions: 2)
+  puts "admin user created: login #{ admin_user.email }, password: #{ admin_user.password }, role: #{ admin_user.permissions } "
 
   puts '---------------------------'
   # =========================
@@ -118,7 +118,7 @@
   
   source_trackers_hash = {
     'Google': 1,
-    'Wikipedi2,a': 0,
+    'Wikipedia': 0,
     'Daily Mail': 2,
     "Sun": 2,
     "New York Times": 1,

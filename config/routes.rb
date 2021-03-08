@@ -9,12 +9,21 @@ Rails.application.routes.draw do
   get 'home', to: 'pages#home'
 
   resources :politicians, only: [:index, :show ]
-  resources :quotes, only: [:index, :new, :create, :edit, :update ]
+  resources :quotes, only: [:index, :new, :create, :edit, :update ] do
+    resources :votes, only: [:new, :create]
+    # get 'votes', to: 'votes#new'#, as: 'quizio'
+    # resources :votes, :path => :quotes, :as => :quotes
+  end
+
 
   get 'contribute', to: 'pages#contribute'
+
+  post 'cast_vote', to: 'pages#cast_vote'
 
   get 'my_account', to: 'pages#my_account'
 
   get 'quiz', to: 'pages#quiz'
+
+
 
 end
