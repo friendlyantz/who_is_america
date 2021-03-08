@@ -1,0 +1,7 @@
+<%= simple_form_for [ @politician ] do |f| %> 
+  <%= f.input :first_name %> 
+  <%= f.input :last_name %> 
+  <%= f.input :party %> 
+  <%= f.association :location, label_method: :name, value_method: :id, include_blank: false %>
+  <%= f.submit "Edit Politician", class: "btn btn-primary" %> 
+<% end %>

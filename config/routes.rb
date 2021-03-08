@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   
   get 'home', to: 'pages#home'
 
-  resources :politicians, only: [:index, :show ]
+  resources :politicians, only: [:index, :show, :new, :create, :edit, :update ]
   resources :quotes, only: [:index, :new, :create, :edit, :update ] do
     resources :votes, only: [:new, :create]
     # get 'votes', to: 'votes#new'#, as: 'quizio'
