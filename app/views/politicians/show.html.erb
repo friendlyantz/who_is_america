@@ -1,3 +1,5 @@
 <h1>Politicians#show</h1>
 <p>Find me in app/views/politicians/show.html.erb</p>
 <%= @politician.first_name %>
+
+<%= link_to "edit politician", edit_politician_path(@politician) if user_signed_in? && current_user.permissions == "admin" %> 
