@@ -13,6 +13,7 @@ a.button {
     width: 80%;
     margin: 1em auto 1em auto;
     color: black;
+    max-width: 30em;
 }
 
 .button.primary-button {
@@ -23,7 +24,25 @@ a.button {
 }
 
 body {
-    background-image: url("flag1.png");
+    background-image: url("flag2.jpg");
     background-size: 70vh;
-    background-blend-mode: soft-light;
+    background-position-x: center;
+    background-repeat-x: no-repeat;
+    background-color: white;
+}
+
+@media(min-width: 576px) {
+    body {
+        background-size: 960px;
+    }   
+}
+
+@media (min-width: 1200px) {
+    body {
+        background-size: 1140px;
+    }   
+}
+
+#content {
+    background-color: rgba(255, 255, 255, 0.842);
 }

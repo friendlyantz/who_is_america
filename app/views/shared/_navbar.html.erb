@@ -1,32 +1,35 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to "/", class: "navbar-brand" do %>
-    <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLHr9FULMx3iEroi8udyNviNulLYB2h2liJg&usqp=CAU" %>
-    <% end %>
+<nav class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-inverse">
+  <div class="container">
+    <%= link_to "/", class: "navbar-brand" do %>
+      <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLHr9FULMx3iEroi8udyNviNulLYB2h2liJg&usqp=CAU" %>
+      <% end %>
 
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item activ">
-        <%= link_to "Home", home_path, class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Quiz", "#", class: "nav-link" %>
-      </li>
-      <li class="nav-item dropdown">
-        <%= image_tag "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRqojHguIwT53Qp3A0PmTBtqC1EUIaR7mmX1w&usqp=CAU", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <%= link_to "Play", quiz_path, class: "dropdown-item" if user_signed_in?%>
-          <%= link_to "Contribute", contribute_path, class: "dropdown-item" if user_signed_in?%>
-          <%= link_to "Politicians", politicians_path, class: "dropdown-item" %>
-          <%= link_to "Quotes", quotes_path, class: "dropdown-item" %>
-          <%= link_to "My Account", my_account_path, class: "dropdown-item" if user_signed_in?%>
-          <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" if user_signed_in?%>
-        </div>
-      </li>
-    </ul>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <%= link_to "Home", home_path, class: "nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Politicians", politicians_path, class: "nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Quotes", quotes_path, class: "nav-link"%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Play", quiz_path, class: "nav-link"  if user_signed_in?%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "My Account", my_account_path, class: "nav-link"  if user_signed_in?%>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Log out",  destroy_user_session_path, method: :delete, class: "nav-link"  if user_signed_in? %>
+        </li>
+      </ul>
+    </div>
   </div>
-</div>
+</nav>
