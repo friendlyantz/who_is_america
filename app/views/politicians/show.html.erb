@@ -1,3 +1,8 @@
 <h1>Politicians#show</h1>
 <p>Find me in app/views/politicians/show.html.erb</p>
 <%= @politician.first_name %>
+
+<%= cl_image_tag @politician.photo.key, height: 300, width: 400, crop: :fill, gravity: :face %> 
+
+
+<%= link_to "edit politician", edit_politician_path(@politician) if user_signed_in? && current_user.permissions == "admin" %> 

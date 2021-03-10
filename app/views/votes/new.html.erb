@@ -1,0 +1,11 @@
+<h1> !!!Quiz, hello <%= current_user.email %></h1>
+
+<%= link_to "Agree", quote_votes_path(@quote, @vote, content: 1), method: :post  %>
+
+<%= link_to "Disagree", quote_votes_path(@quote, @vote, content: 0), method: :post  %>
+
+<%# <%= link_to "Disagree", new_vote_path(content: 0), method: post %>  %>
+
+<%# <button type="submit"> Agree </button>
+<button type="submit"> Disagree </button> %>
+
