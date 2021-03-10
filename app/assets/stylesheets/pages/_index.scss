@@ -23,6 +23,10 @@ a.button {
     margin-top: 8em;
 }
 
+#content {
+    padding-bottom: 10vh;
+}
+
 body {
     background-image: url("flag2.jpg");
     background-size: 70vh;
@@ -41,8 +45,4 @@ body {
     body {
         background-size: 1140px;
     }   
-}
-
-#content {
-    background-color: rgba(255, 255, 255, 0.842);
 }
