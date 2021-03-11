@@ -65,7 +65,7 @@
   end
   
   def politician_params
-    params.require(:politician).permit(:first_name, :last_name, :party, :location_id,)    
+    params.require(:politician).permit(:first_name, :last_name, :party, :photo, :location_id,)    
   end
 
 end
