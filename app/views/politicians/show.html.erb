@@ -1,5 +1,21 @@
 <h1>Politicians#show</h1>
 <p>Find me in app/views/politicians/show.html.erb</p>
 <%= @politician.first_name %>
+<% @politician.quotes.each do |quote| %>
+   <li>
+      <%= quote.content %>
+   </li>
+<% end %>
 
 <%= link_to "edit politician", edit_politician_path(@politician) if user_signed_in? && current_user.permissions == "admin" %> 
+<% if user_signed_in? && current_user.permissions == "admin" %>
+ <p> 
+  <%= link_to politician_path(@politician),  
+     # class: "", 
+     method: :delete, 
+     data: { confirm: "Are you sure?" } do %> 
+      <i class="fas fa-trash"></i>  
+      <p>delete</p> 
+      <% end %>   
+ </p> 
+ <% end %>

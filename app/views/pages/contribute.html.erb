@@ -6,7 +6,13 @@
   <% end %>
 </ol>
 
+
+<% if policy(Quote).create? %> 
 <%= link_to "Create quote", new_quote_path %>
+<% end %>
+
+
+
 <hr>
 <%= link_to "Create politician", new_politician_path if user_signed_in? && current_user.permissions == "admin" %> 
 
