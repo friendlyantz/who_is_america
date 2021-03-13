@@ -33,6 +33,7 @@
   puts "destroying all entries: COMPLETE"
   puts '---------------------------'
 # ============= PURGE ENDED. SEEDING STARTING==================
+# ============= LOCATIONS ==================
   usa = Location.create(name: "USA", location_type: 0)
       puts "#{usa.name} created!"
 
