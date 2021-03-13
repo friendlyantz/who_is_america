@@ -5,6 +5,10 @@ ruby '2.6.6'
 
 gem 'devise'
 
+# Problem: you can edit/delete a quote you did not create. 
+# Solution: use the pundit gem. 
+gem 'pundit'
+
 gem 'awesome_print'
 
 group :development, :test do

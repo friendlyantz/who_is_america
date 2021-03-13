@@ -1,8 +1,22 @@
-<h1>Politicians#show</h1>
-<p>Find me in app/views/politicians/show.html.erb</p>
-<%= @politician.first_name %>
+<%= @politician.first_name + @politician.last_name%>
+<%= cl_image_tag @politician.photo.key, height: 300, width: 400, crop: :fill, gravity: :face if @politician.photo.present?%> 
+<% @politician.quotes.each do |quote| %>
+   <li>
+      <%= quote.content %>
+   </li>
+<% end %>
 
-<%= cl_image_tag @politician.photo.key, height: 300, width: 400, crop: :fill, gravity: :face %> 
 
-
+<hr>
 <%= link_to "edit politician", edit_politician_path(@politician) if user_signed_in? && current_user.permissions == "admin" %> 
+<% if user_signed_in? && current_user.permissions == "admin" %>
+ <p> 
+  <%= link_to politician_path(@politician),  
+     # class: "", 
+     method: :delete, 
+     data: { confirm: "Are you sure?" } do %> 
+      <i class="fas fa-trash"></i>  
+      <p>delete</p> 
+      <% end %>   
+ </p> 
+ <% end %>
