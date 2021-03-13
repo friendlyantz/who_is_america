@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'source_trackers/index'
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: 'pages#welcome'
@@ -14,7 +15,8 @@ Rails.application.routes.draw do
     # get 'votes', to: 'votes#new'#, as: 'quizio'
     # resources :votes, :path => :quotes, :as => :quotes
   end
-
+  
+  resources :source_trackers, only: [:index]
 
   get 'contribute', to: 'pages#contribute'
 
