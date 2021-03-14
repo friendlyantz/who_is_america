@@ -1,23 +1,25 @@
   class PoliticiansController < ApplicationController
     skip_before_action :authenticate_user!, only: [:index, :show]
   def index
-    @politicians = Politician.all
+    # @politicians = Politician.all
+    @politicians = policy_scope(Politician)
     @locations = Location.all
   end
-
+  
   def show
     find_politician
+    @politicians = policy_scope(Politician)
   end
 
   def new
-    redirect_to home_path if current_user.permissions != "admin"
     @politician = Politician.new
+    authorize @politician
     
   end
   
   def create
-    redirect_to home_path if current_user.permissions != "admin"
     @politician = Politician.new(politician_params)
+    authorize @politician
     if @politician.save
       flash[:notice] = 'Object successfully created'
       redirect_to politician_path(@politician)
@@ -28,19 +30,31 @@
   end
   
   def edit
-    redirect_to home_path if current_user.permissions != "admin"
     @politician = Politician.find(params[:id])
+    authorize @politician
   end
   
   def update
-    redirect_to home_path if current_user.permissions != "admin"
     @politician = Politician.find(params[:id])
+    authorize @politician
     if @politician.update(politician_params)
-      flash[:notice] = 'Object successfully created'
+      flash[:notice] = 'Object successfully update'
       redirect_to politician_path(@politician)
     else
       flash[:alert] = 'Something went wrong'
       render 'edit'
+    end
+  end
+
+  def destroy
+    @politician = Politician.find(params[:id])
+    authorize @politician
+    if @politician.destroy
+      flash[:notice] = 'Object successfully destroyed'
+      redirect_to politicians_path
+    else
+      flash[:alert] = 'Something went wrong'
+      redirect_to politician_path(@politician)
     end
   end
   
