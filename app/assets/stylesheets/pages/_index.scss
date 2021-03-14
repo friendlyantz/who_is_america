@@ -2,9 +2,9 @@
 @import "home";
 @import "welcome";
 
+input.button,
 a.button {
-    background-color: white;
-    border: 1px solid black;
+    background-color: $theme-main;
     padding: 1em 3em;
     display: flex;
     margin-top: 1em;
@@ -12,15 +12,18 @@ a.button {
     border-radius: 1em;
     width: 80%;
     margin: 1em auto 1em auto;
-    color: black;
+    color: $theme-text;
     max-width: 30em;
+    text-transform: uppercase;
 }
 
+input.button.primary-button,
 .button.primary-button {
-    background-color: black;
-    color: white;
+    background-color: $theme-primary;
+    color: $theme-bg;
     border-radius: 2em;
-    margin-top: 8em;
+    margin-top: 2em;
+    margin-bottom: 2em;
 }
 
 #content {
@@ -28,21 +31,5 @@ a.button {
 }
 
 body {
-    background-image: url("flag2.jpg");
-    background-size: 70vh;
-    background-position-x: center;
-    background-repeat-x: no-repeat;
-    background-color: white;
-}
-
-@media(min-width: 576px) {
-    body {
-        background-size: 960px;
-    }   
-}
-
-@media (min-width: 1200px) {
-    body {
-        background-size: 1140px;
-    }   
+    background-color: $theme-bg;
 }

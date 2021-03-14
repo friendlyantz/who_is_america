@@ -1,12 +1,51 @@
 // Specific CSS for your home-page
 .welcome-title {
     text-align: center;
-    font-size: 2em;
+    font-size: 3em;
     font-weight: normal;
-    margin: 3em 10% 3em 10%;
-    width: 80%;
+    width: 100%;
+    padding-top: 8vh;
+    padding-bottom: 6vh;
+    font-weight: bold;
+    text-transform: uppercase;
 
     small {
-        color: darkslategray
+        font-weight: bold;
+        text-transform: none;
     }
+}
+
+#welcome-bg {
+    background-image: url("flag2.jpg");
+    background-size: 65vh;
+    background-position-x: center;
+    background-repeat-x: no-repeat;
+    position: fixed;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: -1;
+    top: 0;
+}
+
+#welcome-content {
+    height: 88vh;
+}
+
+@media(min-width: 576px) {
+    #welcome-bg {
+        background-size: 973px;
+    }   
+}
+
+@media(min-width: 992px) {
+    #welcome-bg {
+        background-size: 1180px;
+    }   
+}
+
+@media (min-width: 1200px) {
+    #welcome-bg {
+        background-size: 1910px;
+    }   
 }

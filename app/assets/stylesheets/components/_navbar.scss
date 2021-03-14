@@ -1,6 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: $theme-main;
+  
+  a {
+    color: $theme-text !important;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +13,8 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.navbar-lewagon .navbar-toggler {
+  border-color: $theme-inactive;
 }
